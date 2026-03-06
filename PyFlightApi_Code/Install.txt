@@ -1,0 +1,28 @@
+Installer python 3.xx
+Exécuter
+    pip install -r requirements.txt
+
+Dézipper le contenu dans un dossier 
+	C:\Formation\PyFlightApi
+
+Exécuter dans le dossier C:\Formation\PyFlightApi
+    python flight_rest.py
+
+Le contenu ci-dessous est affiché
+
+	FlightsApp Rest Api
+	Listening on http://localhost:5000
+	Sample request :  http://localhost:5000/Flights/10487
+	 * Serving Flask app 'flight_rest'
+	 * Debug mode: off
+	WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+	 * Running on all addresses (0.0.0.0)
+	 * Running on http://127.0.0.1:5000
+	 * Running on http://192.168.1.58:5000
+	Press CTRL+C to quit
+	
+Ouvrir http://localhost:5000/Flights/10487 dans Chrome
+{"Airline": "AF", "ArrivalCity": "London", "ArrivalTime": "10:30 AM", 
+"DepartureCity": "Paris", "DepartureTime": "08:00 AM", 
+"FlightNumber": 10487, "Price": 107.47, "PriceFirst": 128.96, 
+"PriceBusiness": 139.71, "SeatsAvailable": 250, "DayOfWeek": "Tuesday"}
