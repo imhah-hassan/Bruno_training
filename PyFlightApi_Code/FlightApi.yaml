@@ -1,0 +1,512 @@
+openapi: 3.1.0
+info:
+  title: FlightsApp Rest Api
+  version: 0.1.0
+paths:
+  /:
+    get:
+      summary: Home
+      operationId: home__get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            text/html:
+              schema:
+                type: string
+  /login:
+    post:
+      summary: Login User
+      operationId: login_user_login_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_login_user_login_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /Users:
+    get:
+      summary: Getusers
+      operationId: GetUsers_Users_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+      security:
+      - HTTPBearer: []
+  /Cities:
+    get:
+      summary: Getcities
+      operationId: GetCities_Cities_get
+      parameters:
+      - name: CityCode
+        in: query
+        required: false
+        schema:
+          type: string
+          title: Citycode
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    post:
+      summary: Createcity
+      operationId: CreateCity_Cities_post
+      security:
+      - HTTPBearer: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+              title: City Data
+      responses:
+        '201':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /Cities/{CityInitials}:
+    patch:
+      summary: Updatecity
+      operationId: UpdateCity_Cities__CityInitials__patch
+      security:
+      - HTTPBearer: []
+      parameters:
+      - name: CityInitials
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Cityinitials
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+              title: City Data
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      summary: Deletecity
+      operationId: DeleteCity_Cities__CityInitials__delete
+      security:
+      - HTTPBearer: []
+      parameters:
+      - name: CityInitials
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Cityinitials
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /RandomFlights:
+    get:
+      summary: Getrandomflights
+      operationId: GetRandomFlights_RandomFlights_get
+      parameters:
+      - name: Count
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 10
+          title: Count
+      - name: Date
+        in: query
+        required: false
+        schema:
+          type: string
+          title: Date
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /Flights:
+    get:
+      summary: Getflights
+      operationId: GetFlights_Flights_get
+      parameters:
+      - name: DepartureCity
+        in: query
+        required: false
+        schema:
+          type: string
+          default: ''
+          title: Departurecity
+      - name: ArrivalCity
+        in: query
+        required: false
+        schema:
+          type: string
+          default: ''
+          title: Arrivalcity
+      - name: Date
+        in: query
+        required: false
+        schema:
+          type: string
+          default: ''
+          title: Date
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    post:
+      summary: Createflight
+      operationId: CreateFlight_Flights_post
+      security:
+      - HTTPBearer: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+              title: Flight Data
+      responses:
+        '201':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /Flights/{flight_number}:
+    get:
+      summary: Getflightbynumber
+      operationId: GetFlightByNumber_Flights__flight_number__get
+      parameters:
+      - name: flight_number
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Flight Number
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    patch:
+      summary: Updateflightprice
+      operationId: UpdateFlightPrice_Flights__flight_number__patch
+      security:
+      - HTTPBearer: []
+      parameters:
+      - name: flight_number
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Flight Number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+              title: Price Data
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /Flights/{FlightNumber}:
+    delete:
+      summary: Deleteflight
+      operationId: DeleteFlight_Flights__FlightNumber__delete
+      security:
+      - HTTPBearer: []
+      parameters:
+      - name: FlightNumber
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Flightnumber
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /FlightOrders:
+    get:
+      summary: Getorders
+      operationId: GetOrders_FlightOrders_get
+      parameters:
+      - name: CustomerName
+        in: query
+        required: false
+        schema:
+          type: string
+          title: Customername
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      summary: Deleteallorders
+      operationId: DeleteAllOrders_FlightOrders_delete
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+    post:
+      summary: Createorder
+      operationId: CreateOrder_FlightOrders_post
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+              title: Order Data
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /FlightOrders/{OrderNumber}:
+    get:
+      summary: Getorder
+      operationId: GetOrder_FlightOrders__OrderNumber__get
+      parameters:
+      - name: OrderNumber
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Ordernumber
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      summary: Deleteorder
+      operationId: DeleteOrder_FlightOrders__OrderNumber__delete
+      parameters:
+      - name: OrderNumber
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Ordernumber
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    patch:
+      summary: Updateorder
+      operationId: UpdateOrder_FlightOrders__OrderNumber__patch
+      parameters:
+      - name: OrderNumber
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Ordernumber
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+              title: Order Data
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    Body_login_user_login_post:
+      properties:
+        username:
+          type: string
+          title: Username
+        password:
+          type: string
+          title: Password
+      type: object
+      required:
+      - username
+      - password
+      title: Body_login_user_login_post
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+  securitySchemes:
+    HTTPBearer:
+      type: http
+      scheme: bearer
