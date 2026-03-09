@@ -1,0 +1,6 @@
+/PyFlightApi_Code/.idea
+/PyFlightApi_Code/.venv
+/PyFlightApi_Code/__pycache__
+/PyFlightApi_Code/build
+/PyFlightApi_Code/dist
+*.log
