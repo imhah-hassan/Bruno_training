@@ -1,0 +1,11 @@
+Departure;Arrival;FlightDate;CustomerName;Class;Tickets
+San Francisco;Zurich;2026-03-05;IMHAH;Economy;5
+Seattle;San Francisco;2026-03-07;IMHAH;First;4
+Denver;Seattle;2026-03-14;IMHAH;Business;5
+Frankfurt;Denver;2026-03-10;IMHAH;Economy;3
+London;Frankfurt;2026-03-06;IMHAH;First;2
+Los Angeles;London;2026-03-07;IMHAH;Business;4
+Paris;Los Angeles;2026-03-19;IMHAH;Economy;4
+Portland;Paris;2026-03-10;IMHAH;First;1
+Sydney;Portland;2026-03-07;IMHAH;Business;5
+Zurich;Sydney;2026-03-11;IMHAH;Economy;5

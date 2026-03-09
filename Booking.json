@@ -1,0 +1,82 @@
+[
+  {
+    "Departure": "San Francisco",
+    "Arrival": "Zurich",
+    "FlightDate": "2026-03-05",
+    "CustomerName": "IMHAH",
+    "Class": "Economy",
+    "Tickets": 5
+  },
+  {
+    "Departure": "Seattle",
+    "Arrival": "San Francisco",
+    "FlightDate": "2026-03-07",
+    "CustomerName": "IMHAH",
+    "Class": "First",
+    "Tickets": 4
+  },
+  {
+    "Departure": "Denver",
+    "Arrival": "Seattle",
+    "FlightDate": "2026-03-14",
+    "CustomerName": "IMHAH",
+    "Class": "Business",
+    "Tickets": 5
+  },
+  {
+    "Departure": "Frankfurt",
+    "Arrival": "Denver",
+    "FlightDate": "2026-03-10",
+    "CustomerName": "IMHAH",
+    "Class": "Economy",
+    "Tickets": 3
+  },
+  {
+    "Departure": "London",
+    "Arrival": "Frankfurt",
+    "FlightDate": "2026-03-06",
+    "CustomerName": "IMHAH",
+    "Class": "First",
+    "Tickets": 2
+  },
+  {
+    "Departure": "Los Angeles",
+    "Arrival": "London",
+    "FlightDate": "2026-03-07",
+    "CustomerName": "IMHAH",
+    "Class": "Business",
+    "Tickets": 4
+  },
+  {
+    "Departure": "Paris",
+    "Arrival": "Los Angeles",
+    "FlightDate": "2026-03-19",
+    "CustomerName": "IMHAH",
+    "Class": "Economy",
+    "Tickets": 4
+  },
+  {
+    "Departure": "Portland",
+    "Arrival": "Paris",
+    "FlightDate": "2026-03-10",
+    "CustomerName": "IMHAH",
+    "Class": "First",
+    "Tickets": 1
+  },
+  {
+    "Departure": "Sydney",
+    "Arrival": "Portland",
+    "FlightDate": "2026-03-07",
+    "CustomerName": "IMHAH",
+    "Class": "Business",
+    "Tickets": 5
+  },
+  {
+    "Departure": "Zurich",
+    "Arrival": "Sydney",
+    "FlightDate": "2026-03-11",
+    "CustomerName": "IMHAH",
+    "Class": "Economy",
+    "Tickets": 5
+  }
+]
